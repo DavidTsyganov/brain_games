@@ -17,7 +17,10 @@ public class Prime {
             String answer = "yes";
 
             for (int j = 2; j < number; j++) {
-                if (number % j == 0) {
+                if (number == 0) {
+                    answer = "no";
+                    break;
+                } else if (number % j == 0) {
                     answer = "no";
                     break;
                 }
