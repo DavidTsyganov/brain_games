@@ -12,15 +12,12 @@ public class Prime {
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
-            int number = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBER);
+            int number = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBER) + 1;
             questionsAndAnswers[i][Engine.QUESTIONS_INDEX] = String.valueOf(number);
             String answer = "yes";
 
             for (int j = 2; j < number; j++) {
-                if (number == 0) {
-                    answer = "no";
-                    break;
-                } else if (number % j == 0) {
+                if (number % j == 0) {
                     answer = "no";
                     break;
                 }
