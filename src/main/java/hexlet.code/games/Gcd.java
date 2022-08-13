@@ -16,7 +16,13 @@ public class Gcd {
             int firstNumber = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBERS);
             int secondNumber = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBERS);
 
+
+
             questionsAndAnswers[i][Engine.QUESTIONS_INDEX] = firstNumber + " " + secondNumber;
+
+            if (firstNumber == 0 || secondNumber == 0) {
+                questionsAndAnswers[i][Engine.ANSWERS_INDEX] = "0";
+            }
 
             int gcd = 1;
             int edge = firstNumber <= secondNumber ? firstNumber : secondNumber;
