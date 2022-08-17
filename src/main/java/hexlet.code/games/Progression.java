@@ -50,7 +50,7 @@ public class Progression {
     public static void run() {
         String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
 
-        for (int i = 0; i < Engine.AMOUNT_OF_ROUNDS; i++) {
+        for (int i = 0; i < roundsData.length; i++) {
             roundsData[i] = generateRoundData();
         }
         Engine.run(roundsData, TASK);
