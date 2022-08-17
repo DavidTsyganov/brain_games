@@ -6,25 +6,27 @@ public class Even {
     private static final String TASK = "Answer 'yes' if number is even otherwise answer 'no'.";
     private static final int BOUND_FOR_RANDOM = 100;
 
-    public static String[][] getResult() {
-        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
+    public static String[] generateRoundData() {
+        String[] roundData = new String[2];
 
-        int i = 0;
-        while (i < Engine.AMOUNT_OF_ROUNDS) {
-            int number = Utils.generateRandomNumber(BOUND_FOR_RANDOM);
-            roundsData[i][0] = String.valueOf(number);
+        int number = Utils.generateRandomNumber(BOUND_FOR_RANDOM);
 
-            boolean even = (number % 2 == 0);
-            roundsData[i][1] = even ? "yes" : "no";
+        roundData[0] = String.valueOf(number);
+        roundData[1] = isEven(number) ? "yes" : "no";
 
-            ++i;
-
-        }
-
-        return roundsData;
+        return roundData;
+    }
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 
     public static void run() {
-        Engine.run(getResult(), TASK);
+        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
+
+        for (int i = 0; i < Engine.AMOUNT_OF_ROUNDS; i++) {
+            roundsData[i] = generateRoundData();
+        }
+
+        Engine.run(roundsData, TASK);
     }
 }
