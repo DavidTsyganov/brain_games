@@ -30,7 +30,6 @@ public class App {
 
         System.out.println("Your choice: " + input);
 
-
         switch (input) {
             case GREET:
                 Cli.greetPlayer();

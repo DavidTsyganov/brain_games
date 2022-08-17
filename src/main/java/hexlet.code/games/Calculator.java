@@ -9,7 +9,7 @@ public class Calculator {
     public static final int BOUND_FOR_OPERATORS = 3;
 
     public static String[][] getResult() {
-        String[][] questionsAndAnswers = new String[Engine.AMOUNT_OF_ROUNDS][2];
+        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
@@ -19,22 +19,22 @@ public class Calculator {
 
             switch (numberOfOperation) {
                 case 0:
-                    questionsAndAnswers[i][Engine.QUESTIONS_INDEX] = String.valueOf(firstNumber)
+                    roundsData[i][0] = String.valueOf(firstNumber)
                             + " + "
                             + String.valueOf(secondNumber);
-                    questionsAndAnswers[i][Engine.ANSWERS_INDEX] = String.valueOf(firstNumber + secondNumber);
+                    roundsData[i][1] = String.valueOf(firstNumber + secondNumber);
                     break;
                 case 1:
-                    questionsAndAnswers[i][Engine.QUESTIONS_INDEX] = String.valueOf(firstNumber)
+                    roundsData[i][0] = String.valueOf(firstNumber)
                             + " - "
                             + String.valueOf(secondNumber);
-                    questionsAndAnswers[i][Engine.ANSWERS_INDEX] = String.valueOf(firstNumber - secondNumber);
+                    roundsData[i][1] = String.valueOf(firstNumber - secondNumber);
                     break;
                 case 2:
-                    questionsAndAnswers[i][Engine.QUESTIONS_INDEX] = String.valueOf(firstNumber)
+                    roundsData[i][0] = String.valueOf(firstNumber)
                             + " * "
                             + String.valueOf(secondNumber);
-                    questionsAndAnswers[i][Engine.ANSWERS_INDEX] = String.valueOf(firstNumber * secondNumber);
+                    roundsData[i][1] = String.valueOf(firstNumber * secondNumber);
                     break;
                 default:
                     System.out.println("There's no such operator");
@@ -42,7 +42,7 @@ public class Calculator {
             }
             ++i;
         }
-        return questionsAndAnswers;
+        return roundsData;
     }
 
     public static void run() {

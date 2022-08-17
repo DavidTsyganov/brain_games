@@ -7,21 +7,18 @@ public class Gcd {
     private static final String TASK = "Find the greatest common divisor of given numbers.";
     private static final int UPPER_BOUND_FOR_NUMBERS = 100;
 
-
     public static String[][] getResult() {
-        String[][] questionsAndAnswers = new String[Engine.AMOUNT_OF_ROUNDS][2];
+        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
             int firstNumber = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBERS);
             int secondNumber = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBERS);
 
-
-
-            questionsAndAnswers[i][Engine.QUESTIONS_INDEX] = firstNumber + " " + secondNumber;
+            roundsData[i][0] = firstNumber + " " + secondNumber;
 
             if (firstNumber == 0 || secondNumber == 0) {
-                questionsAndAnswers[i][Engine.ANSWERS_INDEX] = "0";
+                roundsData[i][1] = "0";
             }
 
             int gcd = 1;
@@ -33,12 +30,12 @@ public class Gcd {
                 }
             }
 
-            questionsAndAnswers[i][Engine.ANSWERS_INDEX] = String.valueOf(gcd);
+            roundsData[i][1] = String.valueOf(gcd);
 
             ++i;
         }
 
-        return questionsAndAnswers;
+        return roundsData;
     }
     public static void run() {
         Engine.run(getResult(), TASK);

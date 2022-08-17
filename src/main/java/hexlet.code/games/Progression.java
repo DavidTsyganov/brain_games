@@ -9,7 +9,7 @@ public class Progression {
     private static final int BOUND_FOR_STEP = 10;
 
     public static String[][] getResult() {
-        String[][] questionsAndAnswers = new String[Engine.AMOUNT_OF_ROUNDS][2];
+        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
@@ -30,13 +30,13 @@ public class Progression {
                 }
                 currentElement = currentElement + step;
             }
-            questionsAndAnswers[i][Engine.QUESTIONS_INDEX] = progression.toString().trim();
-            questionsAndAnswers[i][Engine.ANSWERS_INDEX] = String.valueOf(rightAnswer);
+            roundsData[i][0] = progression.toString().trim();
+            roundsData[i][1] = String.valueOf(rightAnswer);
 
             ++i;
         }
 
-        return questionsAndAnswers;
+        return roundsData;
     }
 
     public static void run() {

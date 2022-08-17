@@ -7,13 +7,12 @@ public class Prime {
     private static final int UPPER_BOUND_FOR_NUMBER = 100;
 
     public static String[][] getResult() {
-        String[][] questionsAndAnswers = new String[Engine.AMOUNT_OF_ROUNDS][2];
-
+        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
             int number = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBER) + 1;
-            questionsAndAnswers[i][Engine.QUESTIONS_INDEX] = String.valueOf(number);
+            roundsData[i][0] = String.valueOf(number);
             String answer = "yes";
 
             for (int j = 2; j < number; j++) {
@@ -23,12 +22,12 @@ public class Prime {
                 }
             }
 
-            questionsAndAnswers[i][Engine.ANSWERS_INDEX] = answer;
+            roundsData[i][1] = answer;
 
             ++i;
         }
 
-        return questionsAndAnswers;
+        return roundsData;
     }
 
     public static void run() {
