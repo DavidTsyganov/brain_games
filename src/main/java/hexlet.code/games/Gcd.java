@@ -24,10 +24,6 @@ public class Gcd {
         int gcd = 1;
         int edge = number1 <= number2 ? number1 : number2;
 
-        if (number1 == 0 || number2 == 0) {
-            return 0;
-        }
-
         for (int i = 2; i < edge; i++) {
             if (number1 % i == 0 && number2 % i == 0) {
                 gcd = i;
