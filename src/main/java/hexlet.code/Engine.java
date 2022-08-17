@@ -14,7 +14,7 @@ public class Engine {
 
         System.out.println("Hello, " + name + "!");
 
-        if (roundsData.length == 0 || roundsData == null || task == null || task.isEmpty()) {
+        if (roundsData == null || roundsData.length == 0 || task == null || task.isEmpty()) {
             return;
         }
 
@@ -27,31 +27,22 @@ public class Engine {
             System.out.println("Question: " + question);
             System.out.println("Your answer: ");
 
-            String answer;
-
-            Scanner scanner = new Scanner(System.in);
-            answer = scanner.nextLine();
+            String answer = sc.nextLine();
 
             String rightAnswer = roundsData[i][1];
 
-            if (isCorrectAnswer(answer, rightAnswer)) {
-                System.out.println("Correct!");
-            } else {
+
+            if (!rightAnswer.equals(answer)) {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + rightAnswer + "'.");
                 System.out.println("Let's try again, " + name + "!");
                 return;
             }
+
+            System.out.println("Correct!");
+
             ++i;
         }
 
         System.out.println("Congratulations, " + name + "!");
-    }
-
-    public static boolean isCorrectAnswer(String answer, String correctAnswer) {
-        if (answer == null || answer.isEmpty()) {
-            return false;
-        }
-
-        return correctAnswer.equals(answer);
     }
 }

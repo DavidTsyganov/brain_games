@@ -12,8 +12,8 @@ public class Gcd {
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
-            int firstNumber = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBERS);
-            int secondNumber = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBERS);
+            int firstNumber = Utils.generateRandomNumber(UPPER_BOUND_FOR_NUMBERS);
+            int secondNumber = Utils.generateRandomNumber(UPPER_BOUND_FOR_NUMBERS);
 
             roundsData[i][0] = firstNumber + " " + secondNumber;
 

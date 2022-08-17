@@ -13,9 +13,9 @@ public class Progression {
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
-            int startOfProgression = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBERS);
-            int step = Utils.getRandomNumber(BOUND_FOR_STEP) + 1;
-            int indexOfHiddenElement = Utils.getRandomNumber(AMOUNT_OF_ELEMENTS);
+            int startOfProgression = Utils.generateRandomNumber(UPPER_BOUND_FOR_NUMBERS);
+            int step = Utils.generateRandomNumber(BOUND_FOR_STEP) + 1;
+            int indexOfHiddenElement = Utils.generateRandomNumber(AMOUNT_OF_ELEMENTS);
 
             int rightAnswer = 0;
             StringBuilder progression = new StringBuilder();

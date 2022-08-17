@@ -11,7 +11,7 @@ public class Prime {
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
-            int number = Utils.getRandomNumber(UPPER_BOUND_FOR_NUMBER) + 1;
+            int number = Utils.generateRandomNumber(UPPER_BOUND_FOR_NUMBER) + 1;
             roundsData[i][0] = String.valueOf(number);
             String answer = "yes";
 

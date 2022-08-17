@@ -13,9 +13,9 @@ public class Calculator {
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
-            int numberOfOperation = Utils.getRandomNumber(BOUND_FOR_OPERATORS);
-            int firstNumber = Utils.getRandomNumber(BOUND_FOR_RANDOM_NUMBERS);
-            int secondNumber = Utils.getRandomNumber(BOUND_FOR_RANDOM_NUMBERS);
+            int numberOfOperation = Utils.generateRandomNumber(BOUND_FOR_OPERATORS);
+            int firstNumber = Utils.generateRandomNumber(BOUND_FOR_RANDOM_NUMBERS);
+            int secondNumber = Utils.generateRandomNumber(BOUND_FOR_RANDOM_NUMBERS);
 
             switch (numberOfOperation) {
                 case 0:

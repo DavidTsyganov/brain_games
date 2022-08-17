@@ -11,7 +11,7 @@ public class Even {
 
         int i = 0;
         while (i < Engine.AMOUNT_OF_ROUNDS) {
-            int number = Utils.getRandomNumber(BOUND_FOR_RANDOM);
+            int number = Utils.generateRandomNumber(BOUND_FOR_RANDOM);
             roundsData[i][0] = String.valueOf(number);
 
             boolean even = (number % 2 == 0);
