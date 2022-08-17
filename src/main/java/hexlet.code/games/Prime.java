@@ -31,8 +31,8 @@ public class Prime {
         return questionsAndAnswers;
     }
 
-    public static void playGame() {
-        Engine.playGame(getResult(), TASK);
+    public static void run() {
+        Engine.run(getResult(), TASK);
     }
 
 }

@@ -4,6 +4,7 @@ import hexlet.code.games.Calculator;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
+
 import java.util.Scanner;
 
 public class App {
@@ -29,29 +30,28 @@ public class App {
 
         System.out.println("Your choice: " + input);
 
-        if (input == EXIT) {
-            System.out.println("Goodbye!");
-            return;
-        }
 
         switch (input) {
             case GREET:
-                Engine.playGame(new String[0][0], "");
+                Cli.greetPlayer();
                 break;
             case EVEN:
-                Even.playGame();
+                Even.run();
                 break;
             case CALC:
-                Calculator.playGame();
+                Calculator.run();
                 break;
             case GCD:
-                Gcd.playGame();
+                Gcd.run();
                 break;
             case PROGRESSION:
-                Progression.playGame();
+                Progression.run();
                 break;
             case PRIME:
-                Prime.playGame();
+                Prime.run();
+                break;
+            case EXIT:
+                System.out.println("Goodbye!");
                 break;
             default:
                 System.out.println("There's no such game!");

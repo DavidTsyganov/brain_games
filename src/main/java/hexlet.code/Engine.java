@@ -8,7 +8,7 @@ public class Engine {
     public static final int QUESTIONS_INDEX = 0;
     public static final int ANSWERS_INDEX = 1;
 
-    public static void playGame(String[][] questionsAndAnswers, String task) {
+    public static void run(String[][] questionsAndAnswers, String task) {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
 
