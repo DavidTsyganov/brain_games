@@ -7,71 +7,36 @@ public class Calculator {
     private static final char[] OPERATIONS = {'+', '-', '*'};
     public static final String TASK = "What is the result of the expression?";
     public static final int BOUND_FOR_RANDOM_NUMBERS = 100;
-
-
     public static String[] generateRoundData() {
         String[] roundData = new String[2];
 
 
-        int numberOfOperation = Utils.generateRandomNumber(OPERATIONS.length);
+        int indexOfOperation = Utils.generateRandomNumber(OPERATIONS.length);
         int firstNumber = Utils.generateRandomNumber(BOUND_FOR_RANDOM_NUMBERS);
         int secondNumber = Utils.generateRandomNumber(BOUND_FOR_RANDOM_NUMBERS);
 
-        switch (OPERATIONS[numberOfOperation]) {
-            case 0:
-                roundData[0] = String.valueOf(firstNumber)
-                        + " + "
-                        + String.valueOf(secondNumber);
-                roundData[1] = String.valueOf(firstNumber + secondNumber); // Здесь будет метод calculate()
-                break;
-
-            case 1:
-                roundData[0] = String.valueOf(firstNumber)
-                        + " - "
-                        + String.valueOf(secondNumber);
-                roundData[1] = String.valueOf(firstNumber - secondNumber); // Здесь будет метод calculate()
-                break;
-            case 2:
-                roundData[0] = String.valueOf(firstNumber)
-                        + " * "
-                        + String.valueOf(secondNumber);
-                roundData[1] = String.valueOf(firstNumber * secondNumber); // Здесь будет метод calculate()
-                break;
-            default:
-                System.out.println("There's no such operator");
-        }
+        roundData[0] = String.valueOf(firstNumber + " " + OPERATIONS[indexOfOperation] + " " + secondNumber);
+        roundData[1] = String.valueOf(calculate(firstNumber, secondNumber, OPERATIONS[indexOfOperation]));
 
         return roundData;
     }
-
-//    public static int calculate(int number1, int number2, char operation) {
-//        int result = 0;
-//        switch (operation) {
-//            case '+':
-//                roundData[0] = String.valueOf(firstNumber)
-//                        + " + "
-//                        + String.valueOf(secondNumber);
-//                roundData[1] = String.valueOf(firstNumber + secondNumber);
-//                break;
-//
-//            case '-':
-//                roundData[0] = String.valueOf(firstNumber)
-//                        + " - "
-//                        + String.valueOf(secondNumber);
-//                roundData[1] = String.valueOf(firstNumber - secondNumber);
-//                break;
-//            case '*':
-//                roundData[0] = String.valueOf(firstNumber)
-//                        + " * "
-//                        + String.valueOf(secondNumber);
-//                roundData[1] = String.valueOf(firstNumber * secondNumber);
-//                break;
-//            default:
-//                System.out.println("There's no such operator");
-//        }
-//        return result;
-//    }
-
+    public static int calculate(int number1, int number2, char operation) {
+        int result = 0;
+        switch (operation) {
+            case '+':
+                result = number1 + number2;
+                break;
+            case '-':
+                result = number1 - number2;
+                break;
+            case '*':
+                result = number1 * number2;
+                break;
+            default:
+                System.out.println("There's no such operation");
+       }
+       return result;
+    }
     public static void run() {
         String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
 

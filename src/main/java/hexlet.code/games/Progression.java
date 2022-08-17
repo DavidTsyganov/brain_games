@@ -8,38 +8,51 @@ public class Progression {
     private static final int UPPER_BOUND_FOR_NUMBERS = 100;
     private static final int BOUND_FOR_STEP = 10;
 
-    public static String[][] getResult() {
-        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
+    public static String[] generateRoundData() {
+        String[] roundData = new String[2];
 
-        int i = 0;
-        while (i < Engine.AMOUNT_OF_ROUNDS) {
-            int startOfProgression = Utils.generateRandomNumber(UPPER_BOUND_FOR_NUMBERS);
-            int step = Utils.generateRandomNumber(BOUND_FOR_STEP) + 1;
-            int indexOfHiddenElement = Utils.generateRandomNumber(AMOUNT_OF_ELEMENTS);
+        int startOfProgression = Utils.generateRandomNumber(UPPER_BOUND_FOR_NUMBERS);
+        int step = Utils.generateRandomNumber(BOUND_FOR_STEP) + 1;
+        int indexOfHiddenElement = Utils.generateRandomNumber(AMOUNT_OF_ELEMENTS);
 
-            int rightAnswer = 0;
-            StringBuilder progression = new StringBuilder();
-            int currentElement = startOfProgression;
+        int[] progression = generateProgression(startOfProgression, step, AMOUNT_OF_ELEMENTS);
 
-            for (int j = 0; j < AMOUNT_OF_ELEMENTS; j++) {
-                if (j == indexOfHiddenElement) {
-                    progression.append(" ..");
-                    rightAnswer = currentElement;
-                } else {
-                    progression.append(" " + currentElement);
-                }
-                currentElement = currentElement + step;
-            }
-            roundsData[i][0] = progression.toString().trim();
-            roundsData[i][1] = String.valueOf(rightAnswer);
+        roundData[0] = hideElement(progression, indexOfHiddenElement);
+        roundData[1] = String.valueOf(progression[indexOfHiddenElement]);
 
-            ++i;
+        return roundData;
+    }
+
+    public static int[] generateProgression(int startOfProgression, int step, int sizeOfProgression) {
+        int[] progression = new int[sizeOfProgression];
+        progression[0] = startOfProgression;
+
+        for (int i = 1; i < sizeOfProgression; i++) {
+            progression[i] += progression[i - 1] + step;
         }
 
-        return roundsData;
+        return progression;
+    }
+
+    public static String hideElement(int[] progression, int index) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < progression.length; i++) {
+            if (i == index) {
+                sb.append(" ..");
+                continue;
+            }
+            sb.append(" " + progression[i]);
+        }
+        return sb.toString();
     }
 
     public static void run() {
-        Engine.run(getResult(), TASK);
+        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
+
+        for (int i = 0; i < Engine.AMOUNT_OF_ROUNDS; i++) {
+            roundsData[i] = generateRoundData();
+        }
+        Engine.run(roundsData, TASK);
     }
 }

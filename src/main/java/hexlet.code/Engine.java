@@ -20,9 +20,9 @@ public class Engine {
 
         System.out.println(task);
 
-        int i = 0;
 
-        while (i < AMOUNT_OF_ROUNDS) {
+
+        for (int i = 0; i < roundsData.length; i++) {
             String question = roundsData[i][0];
             System.out.println("Question: " + question);
             System.out.println("Your answer: ");
@@ -39,8 +39,6 @@ public class Engine {
             }
 
             System.out.println("Correct!");
-
-            ++i;
         }
 
         System.out.println("Congratulations, " + name + "!");
