@@ -6,32 +6,32 @@ public class Prime {
     private static final String TASK = "Answer 'yes' if the given number is prime. Otherwise answer 'no'.";
     private static final int UPPER_BOUND_FOR_NUMBER = 100;
 
-    public static String[][] getResult() {
-        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
+    public static String[] generateRoundData() {
+        String[] roundData = new String[2];
 
-        int i = 0;
-        while (i < Engine.AMOUNT_OF_ROUNDS) {
-            int number = Utils.generateRandomNumber(UPPER_BOUND_FOR_NUMBER) + 1;
-            roundsData[i][0] = String.valueOf(number);
-            String answer = "yes";
+        int number = Utils.generateRandomNumber(UPPER_BOUND_FOR_NUMBER) + 1;
+        roundData[0] = String.valueOf(number);
 
-            for (int j = 2; j < number; j++) {
-                if (number % j == 0) {
-                    answer = "no";
-                    break;
-                }
+        roundData[1] = isPrime(number) ? "yes" : "no";
+
+        return roundData;
+    }
+
+    public static boolean isPrime(int number) {
+        for (int j = 2; j < number; j++) {
+            if (number % j == 0) {
+                return false;
             }
-
-            roundsData[i][1] = answer;
-
-            ++i;
         }
-
-        return roundsData;
+        return true;
     }
 
     public static void run() {
-        Engine.run(getResult(), TASK);
-    }
+        String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
 
+        for (int i = 0; i < Engine.AMOUNT_OF_ROUNDS; i++) {
+            roundsData[i] = generateRoundData();
+        }
+        Engine.run(roundsData, TASK);
+    }
 }
