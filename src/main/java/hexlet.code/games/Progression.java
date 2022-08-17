@@ -39,10 +39,10 @@ public class Progression {
 
         for (int i = 0; i < progression.length; i++) {
             if (i == index) {
-                sb.append(" ..");
+                sb.append(".. ");
                 continue;
             }
-            sb.append(" " + progression[i]);
+            sb.append(progression[i] + " ");
         }
         return sb.toString();
     }
