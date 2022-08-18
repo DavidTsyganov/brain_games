@@ -34,8 +34,9 @@ public class Calculator {
                 break;
             default:
                 System.out.println("There's no such operation");
-       }
-       return result;
+        }
+
+        return result;
     }
     public static void run() {
         String[][] roundsData = new String[Engine.AMOUNT_OF_ROUNDS][2];
