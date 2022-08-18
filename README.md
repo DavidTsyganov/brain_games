@@ -13,6 +13,7 @@
 - Определение простое число или нет.
 
 ### Пример работы приложения
+<a href="https://asciinema.org/a/g0jlPskO5bOPNt58gsRvXAMdq" target="_blank"><img src="https://asciinema.org/a/g0jlPskO5bOPNt58gsRvXAMdq.svg" /></a>
 
 #### Примечание
 В данном проекте не используются ООП возможности языка Java. Все задачи решаются с помощью базовых синтаксических конструкций. 
